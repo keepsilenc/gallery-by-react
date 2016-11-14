@@ -1,0 +1,131 @@
+@font-face {
+  font-family: icons-turn-arrow;
+  src: url('../fonts/icomoon.eot') format('embedded-opentype'),
+  url('../fonts/icomoon.svg') format('svg'),
+  url('../fonts/icomoon.ttf') format('truetype'),
+  url('../fonts/icomoon.woff') format('woff');
+}
+html,body{
+  width: 100%;
+  height: 100%;
+  background-color: #222;
+  overflow: hidden;
+}
+.content{
+  width: 100%;
+  height: 100%;
+}
+
+/*stage start */
+.stage{
+  position: relative;
+  width: 100%;
+  /*height: 680px;*/
+  height: 100%;
+  background-color: red;
+}
+.img-sec{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #ddd;
+
+  @at-root {
+
+    .img-figure{
+
+      position: absolute;
+      width: 320px;
+      height: 360px;
+      margin: 0;
+      padding: 40px;
+      background-color: #ffffff;
+      box-sizing: border-box;
+      cursor: pointer;
+      transform-origin: 0 50% 0;
+      transform-style: preserve-3d;
+      perspective: 1800px;
+      transition:transform .6s ease-in-out,left .6s ease-in-out,top .6s ease-in-out;
+
+      &.is-inverse{
+        transform: translate(320px) rotateY(180deg);
+
+      }
+    }
+
+    figcaption {
+
+      text-align: center;
+
+      .img-title {
+        margin: 20px 0 0 0;
+
+        color: #a7a0a2;
+        font-size: 16px;
+      }
+      .img-back{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        padding: 30px;
+        box-sizing: border-box;
+        text-align: center;
+        color: #666;
+        transform:rotateY(180deg) translateZ(1px);
+
+        background-color: #fff;
+        backface-visibility: hidden;
+
+      }
+    }
+  }
+}
+/*stage end */
+/*controller start*/
+.controller-nav{
+  position: absolute;
+  left: 0;
+  bottom: 30px;
+  z-index: 101;
+  width: 100%;
+  text-align: center;
+
+  @at-root {
+    .controller-unit{
+      display:inline-block;
+      margin:0 5px;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      cursor: pointer;
+      border-radius:15px;
+      background-color: #aaa;
+      transform: scale(.618);
+      vertical-align: middle;
+      transition:transform .6s ease-in-out,background .3s;
+      &.is-center{
+        transform: scale(1);
+        background-color: #888;
+
+        &::before {
+          color: #fff;
+          line-height: 30px;
+          font-family: 'icons-turn-arrow';
+          content: '\e969';
+
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+        &.is-inverse{
+          background-color: #555;
+          transform:rotateY(180deg)
+        }
+      }
+
+
+    }
+  }
+}
+/*controller end*/
